@@ -761,6 +761,7 @@
     "Configure Providers": "Configure",
     "Active Provider": "In use: {provider}",
     "No Configured Providers": "No providers configured yet.",
-    "Provider Configuration Changed": "Configuration changed. Review this provider in its settings."
+    "Provider Configuration Changed": "Configuration changed. Review this provider in its settings.",
+    "Studio Tagline": "Create, edit, and publish short videos with AI"
   }
 }
