@@ -1781,6 +1781,7 @@ def _render_brand(available_update: str | None = None):
                title="Open project on GitHub">v{html.escape(str(config.project_version))}</a>
             {update_link}
         </h1>
+        <p class="mpt-brand__tagline">{html.escape(tr("Studio Tagline"))}</p>
         """,
         unsafe_allow_html=True,
     )

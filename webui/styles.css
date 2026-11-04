@@ -501,3 +501,108 @@ div[class*="st-key-task_row_"] button[kind="secondary"] p {
         min-width: 1.75rem !important;
     }
 }
+
+
+/* Studio UI v1: moderniza los controles existentes sin cambiar el motor ni
+   los identificadores que Streamlit usa para mantener el estado de la app.
+   Se heredan los colores de tema para mantener compatibilidad claro/oscuro. */
+:root {
+    --mpt-studio-radius: 1.125rem;
+    --mpt-studio-border: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+div[data-testid="stMainBlockContainer"] {
+    max-width: 1540px;
+    padding-right: clamp(0.85rem, 2.8vw, 2.5rem);
+    padding-left: clamp(0.85rem, 2.8vw, 2.5rem);
+    padding-bottom: 3rem;
+}
+
+.st-key-top_bar {
+    padding: 0.65rem 0 1.2rem;
+    margin-bottom: 1.1rem;
+    border-bottom: 1px solid var(--mpt-studio-border);
+}
+
+.mpt-brand__name {
+    font-weight: 800;
+    letter-spacing: -0.045em;
+}
+
+.mpt-brand__tagline {
+    margin: 0.3rem 0 0;
+    color: inherit;
+    opacity: 0.66;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    border-radius: var(--mpt-studio-radius);
+}
+
+div[data-testid="stButton"] > button[kind="primary"],
+div[data-testid="stDownloadButton"] > button[kind="primary"] {
+    min-height: 2.75rem;
+    border-radius: 0.8rem;
+    font-weight: 650;
+    box-shadow: 0 5px 20px color-mix(in srgb, var(--st-primary-color, #635bff) 12%, transparent);
+    transition: filter 160ms ease, transform 160ms ease;
+}
+
+div[data-testid="stButton"] > button[kind="primary"]:hover,
+div[data-testid="stDownloadButton"] > button[kind="primary"]:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+}
+
+.st-key-video_subject_field textarea {
+    min-height: 7rem;
+    border-radius: 0.8rem;
+    line-height: 1.55;
+}
+
+[data-testid="stTextInput"] input,
+[data-testid="stTextArea"] textarea,
+[data-testid="stSelectbox"] > div {
+    border-radius: 0.75rem;
+}
+
+:where(button, input, textarea, a):focus-visible {
+    outline: 2px solid var(--st-primary-color, #635bff);
+    outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+    .st-key-top_bar {
+        padding-top: 0.25rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .mpt-brand__tagline {
+        max-width: 38ch;
+        font-size: 0.8rem;
+    }
+
+    div[data-testid="stMainBlockContainer"] {
+        padding-right: 0.85rem;
+        padding-left: 0.85rem;
+        padding-bottom: 5rem;
+    }
+
+    div[data-testid="stVerticalBlockBorderWrapper"] {
+        border-radius: 0.95rem;
+    }
+
+    div[data-testid="stButton"] > button[kind="primary"] {
+        min-height: 3rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    div[data-testid="stButton"] > button[kind="primary"],
+    div[data-testid="stDownloadButton"] > button[kind="primary"] {
+        transition: none;
+        transform: none;
+    }
+}
